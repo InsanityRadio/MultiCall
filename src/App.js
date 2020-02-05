@@ -223,6 +223,11 @@ class App extends React.Component {
 			audio_remote: document.getElementById('audio-remote-' + handset.extension),
 			events_listener: { events: '*', listener: (event) => {
 				console.log('got event', event)
+
+				if (event.type == 'connected') {
+					// chrome wont do this itself apparently
+					document.getElementById('audio-remote-' + handset.extension).play(); 
+				}
 			}}
 		})
 
@@ -382,7 +387,7 @@ class App extends React.Component {
 
 					<div className="hide">
 						{
-							localHandsets.map((handset) => <audio id={ "audio-remote-" + handset.extension } key={ handset.extension } />)
+							localHandsets.map((handset) => <audio id={ "audio-remote-" + handset.extension } autoPlay key={ handset.extension } />)
 						}
 					</div>
 				</div>
