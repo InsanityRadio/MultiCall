@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/MultiCall/static/css/main.04f3cf94.chunk.css",
-    "main.js": "/MultiCall/static/js/main.2d6a9f0c.chunk.js",
-    "main.js.map": "/MultiCall/static/js/main.2d6a9f0c.chunk.js.map",
+    "main.js": "/MultiCall/static/js/main.96b8a1a1.chunk.js",
+    "main.js.map": "/MultiCall/static/js/main.96b8a1a1.chunk.js.map",
     "runtime-main.js": "/MultiCall/static/js/runtime-main.a8682417.js",
     "runtime-main.js.map": "/MultiCall/static/js/runtime-main.a8682417.js.map",
     "static/js/2.ffcc15ac.chunk.js": "/MultiCall/static/js/2.ffcc15ac.chunk.js",
     "static/js/2.ffcc15ac.chunk.js.map": "/MultiCall/static/js/2.ffcc15ac.chunk.js.map",
     "index.html": "/MultiCall/index.html",
-    "precache-manifest.00023f18bb01a81c9e6592e7c0a925b0.js": "/MultiCall/precache-manifest.00023f18bb01a81c9e6592e7c0a925b0.js",
+    "precache-manifest.71d3e0d2b887ed0af91e24f060196dd0.js": "/MultiCall/precache-manifest.71d3e0d2b887ed0af91e24f060196dd0.js",
     "service-worker.js": "/MultiCall/service-worker.js",
     "static/css/main.04f3cf94.chunk.css.map": "/MultiCall/static/css/main.04f3cf94.chunk.css.map",
     "static/js/2.ffcc15ac.chunk.js.LICENSE.txt": "/MultiCall/static/js/2.ffcc15ac.chunk.js.LICENSE.txt",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.a8682417.js",
     "static/js/2.ffcc15ac.chunk.js",
     "static/css/main.04f3cf94.chunk.css",
-    "static/js/main.2d6a9f0c.chunk.js"
+    "static/js/main.96b8a1a1.chunk.js"
   ]
 }
