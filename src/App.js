@@ -45,7 +45,7 @@ const dark = {
 }
 
 const SERVER = 'sip.insn.it';
-const WS_HOST = 'ws://10.32.4.36:8002/ws';
+const WS_HOST = 'wss://sip.insn.it/ws';
 const EXT = '6000';
 
 const SIPml = window.SIPml;
