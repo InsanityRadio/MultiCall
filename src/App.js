@@ -45,7 +45,7 @@ const dark = {
 }
 
 const SERVER = 'sip.insn.it';
-const WS_HOST = 'ws://localhost:8580/ws';
+const WS_HOST = 'ws://10.32.4.36:8002/ws';
 const EXT = '6000';
 
 const SIPml = window.SIPml;
@@ -181,7 +181,7 @@ class App extends React.Component {
 	}
 
 	isLocal (extension) {
-		return this.state.CONFIG[extension] && this.state.CONFIG[extension].enabled
+		return this.state.CONFIG && this.state.CONFIG[extension] && this.state.CONFIG[extension].enabled
 	}
 
 	findExtension () {
