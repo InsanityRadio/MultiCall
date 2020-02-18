@@ -15,11 +15,9 @@
     "ws": "^7.2.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-app-rewired start",
     "electron": "electron start.js",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build": "export GENERATE_SOURCEMAP=false; react-app-rewired build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -38,6 +36,9 @@
   },
   "devDependencies": {
     "@uifabric/icons": "^7.3.4",
-    "electron": "^8.0.0"
+    "customize-cra": "^0.9.1",
+    "electron": "^8.0.0",
+    "react-app-rewired": "^2.1.5",
+    "webpack-obfuscator": "^0.24.6"
   }
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { DialogFooter, PrimaryButton, Toggle, Text } from 'office-ui-fabric-react/lib';
+import { ActionButton, DialogFooter, PrimaryButton, Toggle, Text } from 'office-ui-fabric-react/lib';
 import MediaDropdown from './MediaDropdown';
 
 const FormGroup = ({ handset, onChange, defaultValue }) => {
@@ -36,22 +36,37 @@ const LS_KEY = 'MCSETTINGS';
 export default class Setup extends React.Component {
 
 	state = {
-		formData: {}
+		formData: {},
+		ready: false
 	}
 
-	componentWillMount () {
+	async componentWillMount () {
 		this.setState({
 			formData: window.localStorage.getItem(LS_KEY) ? JSON.parse(window.localStorage.getItem(LS_KEY)) : {}
 		})
+
+		await navigator.mediaDevices.getUserMedia({ audio: true });
+
+		this.setState({
+			ready: true
+		})
 	}
 
-	onSave () {
-		window.localStorage.setItem(LS_KEY, JSON.stringify(this.state.formData));
+	onSave (data) {
+		window.localStorage.setItem(LS_KEY, JSON.stringify(data || this.state.formData));
 		window.location.reload();
 	}
 
 	render () {
-		console.log('cuck render', this.state)
+
+		if (!this.state.ready) {
+			return <>
+				<Text variant="medium">Please allow access to your microphone.</Text>
+				<br /><br />
+				<ActionButton onClick={ this.onSave.bind(this, {}) }>Continue without using browser media</ActionButton>
+			</>
+		}
+
 		return <>
 			<Text variant="medium">What devices would you like to use on this machine?</Text>
 			{
@@ -68,7 +83,7 @@ export default class Setup extends React.Component {
 			}
 
 			<DialogFooter>
-				<PrimaryButton onClick={ this.onSave.bind(this) }>Save</PrimaryButton>
+				<PrimaryButton onClick={ this.onSave.bind(this, undefined) }>Save</PrimaryButton>
 			</DialogFooter>
 		</>;
 	}

@@ -14,6 +14,9 @@ export default class Handsets extends React.Component {
 	}
 
 	_onRenderLink (link) {
+
+		let line = link.routed_to ? this.props.lines.find((a) => a.extension == link.routed_to) : null;
+
 		return <>
 			<div className="icon-container">
 				<span className="line-icon" style={{ backgroundColor: link.colour }}>{ link.ref }</span>
@@ -24,7 +27,7 @@ export default class Handsets extends React.Component {
 				<span className="nav-link-inner-flex-text">
 					<Text variant="large">{ link.local && ('[ Local ] ') }{ link.name }</Text><br />
 					{ link.routed_to ? 
-						<Text variant="small">Connected to { link.remote } ({ link.routed_to })</Text> :
+						<Text variant="small">Connected to { link.remote } (Line { (link.routed_to % 100) })</Text> :
 						( link.bridge ? 
 							<Text variant="small">Line available</Text> :
 							<Text variant="small">WARNING: Not connected</Text>
@@ -33,6 +36,12 @@ export default class Handsets extends React.Component {
 				</span>
 				<span>
 					{ link.outbound && <IconButton iconProps={{ iconName: 'Phone' }} style={{ color: link.colour }}></IconButton> }
+
+					{ link.routed_to ? <>
+						<IconButton iconProps={{ iconName: 'PinSolid12' }} title='Park Call' onClick={ this.props.onParkCall.bind(this, line) }></IconButton>
+						<IconButton iconProps={{ iconName: 'DeclineCall', fontSize: 50 }} onClick={ this.props.onDumpCall.bind(this, line) } title='Dump Call'></IconButton>
+					</> : null }
+					
 				</span>
 			</div>
 		</>;

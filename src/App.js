@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import { Customizer, createTheme, PrimaryButton, Dialog, ComboBox, IconButton, DefaultButton, Toggle, Dropdown, Text } from 'office-ui-fabric-react/lib';
+import { ActionButton, Customizer, createTheme, PrimaryButton, Dialog, ComboBox, IconButton, DefaultButton, Toggle, Dropdown, Text } from 'office-ui-fabric-react/lib';
 
 import CallerReadyState from './CallerReadyState';
 
@@ -167,8 +167,8 @@ class App extends React.Component {
 			this.state.handsets.filter((a) => this.isLocal(a.extension)).map((h) => {
 				var stack = new SIPml.Stack({
 					realm: SERVER,
-					impi: String(h.extension),
-					impu: 'sip:' + h.extension + '@' + SERVER + ':5060',
+					impi: String(5000), //  String(h.extension),
+					impu: 'sip:5000@' + SERVER + ':5060',
 					websocket_proxy_url: 'wss://' + SERVER + ':8089/ws',
 					password: 'FB8C005A87',
 					events_listener: { events: '*', listener: (e) => this.onSipEvent(h, stack, e) }
@@ -226,7 +226,10 @@ class App extends React.Component {
 
 				if (event.type == 'connected') {
 					// chrome wont do this itself apparently
-					document.getElementById('audio-remote-' + handset.extension).play(); 
+					let el = document.getElementById('audio-remote-' + handset.extension);
+
+					if (false && el.paused)
+						el.play(); 
 				}
 			}}
 		})
@@ -354,7 +357,15 @@ class App extends React.Component {
 					{ this.state.dialog && this.renderDialog(this.state.dialog) }
 
 					<div className="column column-left">
-						<Handsets handsets={ this.state.handsets } onChange={ (handset) => this.setState({ handset }) } handset={ this.state.handset } />
+						<Handsets
+							handsets={ this.state.handsets }
+							lines={ this.state.lines }
+							onChange={ (handset) => this.setState({ handset }) }
+							handset={ this.state.handset }
+							onParkCall={ this.onParkCall.bind(this) }
+							onBlockNumber={ this.onBlockNumber.bind(this) }
+							onDumpCall={ this.onDumpCall.bind(this) }
+							onAnswer={ this.onAnswer.bind(this) } />
 
 						<div className="left-controls">
 							<Toggle inlineLabel label="Monitor Studio" />
@@ -369,7 +380,9 @@ class App extends React.Component {
 						</div>
 
 						<Text variant="medium">{ this.state.isSIPClient ? 'Local VOIP client running here' : (
-								<a href="?sip_stack_client=1">UI only, not running local VOIP client</a>
+								<ActionButton onClick={ () => window.location.href = '?sip_stack_client=1' }>
+									Enable local VOIP client
+								</ActionButton>
 							) }</Text>
 					</div>
 

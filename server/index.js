@@ -1,17 +1,3 @@
-/**
- *  This example shows how a playback can be controlled on a channel using
- *  channel dtmf events.
- *
- *  @namespace playback-example
- *
- *  @copyright 2014, Digium, Inc.
- *  @license Apache License, Version 2.0
- *  @author Samuel Fortier-Galarneau <sgalarneau@digium.com>
- *  @example <caption>Dialplan</caption>
- *  exten => 7000,1,NoOp()
- *      same => n,Stasis(playback-example)
- *      same => n,Hangup()
- */
 'use strict';
 
 const client = require('ari-client');
@@ -20,14 +6,14 @@ const WebSocket = require('ws');
 
 let ARI;
 
-class CallerReadyState {
-	static EMPTY = 0;
-	static NEW = 1;
-	static ANSWERED = 2;
-	static BLOCKED = 4;
-	static SCREENED = 8;
-	static ONAIR = 16;
-	static FINISHED = 32;
+const CallerReadyState = {
+	EMPTY: 0,
+	NEW: 1,
+	ANSWERED: 2,
+	BLOCKED: 4,
+	SCREENED: 8,
+	ONAIR: 16,
+	FINISHED: 32
 }
 
 class CallerMap {
@@ -399,6 +385,7 @@ client.connect('http://134.219.89.3:8088', 'multicall', 'NQ5oxpeFFxNDqwACPH0hTE'
 					let adj = String(parseInt(extension) - 100);
 
 					ROUTE_MAP[adj] && ROUTE_MAP[adj].offline();
+					console.log(extension, 'is now unavailable')
 				}
 				return;
 			}
