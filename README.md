@@ -44,4 +44,4 @@ There is no configuration mechanism at the moment. Edit `server/index.js` to spe
 
 ## License
 
-The code is currently unlicensed. Application code is copyright Insanity Radio, all rights reserved. You must seek permission before using or distributing this code.
+The code is [copyright Insanity Radio](https://www.gnu.org/licenses/agpl-3.0.en.html), and licensed under GNU AGPL v3.
