@@ -17,7 +17,7 @@ An operator may answer an incoming call by tapping or clicking on the line. This
 An active call has several options. These are listed in order from left to right:
 * Pin - place the caller on hold for later. This can be used to screen a good caller, as pinned lines will turn green. 
 * Transfer - in on-air mode, route the call to the next available On-Air device. 
-* Block - disconnect the call and immediately block the number. This can be used to ban callers. 
+* Block - disconnect the call and immediately block the number. This can be used to ban callers. (Not implemented yet)
 * Disconnect - immediately terminate the call and free the line for another call. 
 
 A pinned call has several options. These are listed in order from left to right:
@@ -37,6 +37,8 @@ Next, spin up the ARI server (interactive Asterisk application) by running `node
 Edit `src/App.js` and change WS_HOST and SERVER to point to your SIP server and the node application. 
 
 Run `npm start` to boot the web application. You should see the setup screen. 
+
+MultiCall has no authentication yet. Use it behind a VPN or a service like Cloudflare Access. 
 
 ## Configuration
 
