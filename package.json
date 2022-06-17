@@ -37,7 +37,7 @@
   "devDependencies": {
     "@uifabric/icons": "^7.3.4",
     "customize-cra": "^0.9.1",
-    "electron": "^8.0.0",
+    "electron": "^15.5.5",
     "react-app-rewired": "^2.1.5",
     "webpack-obfuscator": "^0.24.6"
   }
