@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/MultiCall/static/css/main.df44945d.chunk.css",
+    "main.js": "/MultiCall/static/js/main.493fb9a1.chunk.js",
+    "runtime-main.js": "/MultiCall/static/js/runtime-main.a8682417.js",
+    "static/js/2.53a7abb7.chunk.js": "/MultiCall/static/js/2.53a7abb7.chunk.js",
+    "index.html": "/MultiCall/index.html",
+    "precache-manifest.c9291795a5f8479ae51149809fca717c.js": "/MultiCall/precache-manifest.c9291795a5f8479ae51149809fca717c.js",
+    "service-worker.js": "/MultiCall/service-worker.js",
+    "static/js/2.53a7abb7.chunk.js.LICENSE.txt": "/MultiCall/static/js/2.53a7abb7.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/MultiCall/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a8682417.js",
+    "static/js/2.53a7abb7.chunk.js",
+    "static/css/main.df44945d.chunk.css",
+    "static/js/main.493fb9a1.chunk.js"
+  ]
+}
